@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   overflow-y: scroll;
   color-scheme: light;
@@ -35,10 +51,20 @@ footer {
   @apply py-10 text-sm;
 }
 
+.font-display {
+  font-family: "General Sans", sans-serif;
+}
+
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-black prose-headings:dark:text-white;
+}
+
+article :where(h2) {
+  @apply font-display;
+  @apply mt-0 text-sm font-medium uppercase tracking-[0.1em];
+  @apply text-black/50 dark:text-white/75;
 }
 
 @layer utilities {
@@ -54,8 +80,7 @@ article {
 }
 
 .animate {
-  @apply opacity-0 translate-y-3;
-  @apply transition-all duration-700 ease-out;
+  @apply opacity-100 translate-y-0;
 }
 
 .animate.show {

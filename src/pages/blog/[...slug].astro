@@ -29,6 +29,9 @@ const { Content } = await post.render();
       </BackToPrev>
     </div>
     <div class="space-y-1 my-10">
+      <div class="animate font-display text-xl font-semibold uppercase tracking-[0.05em] text-black dark:text-white">
+        {post.data.title}
+      </div>
       <div class="animate flex items-center gap-1.5">
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
@@ -38,11 +41,8 @@ const { Content } = await post.render();
           {readingTime(post.body)}
         </div>
       </div>
-      <div class="animate text-2xl font-semibold text-black dark:text-white">
-        {post.data.title}
-      </div>
     </div>
-    <article class="animate">
+    <article class="animate text-black dark:text-white">
       <Content />
     </article>
   </Container>
