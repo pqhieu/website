@@ -1,11 +1,11 @@
 ---
 import { cn } from "@lib/utils";
+import type { HTMLAttributes } from "astro/types";
 
-type Props = {
-  href: string;
+type Props = HTMLAttributes<"a"> & {
   external?: boolean;
   underline?: boolean;
-}
+};
 
 const {
   href,

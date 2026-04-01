@@ -61,6 +61,19 @@ article {
   @apply prose-headings:text-black prose-headings:dark:text-white;
 }
 
+article :where(p, li) {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+@media (min-width: 900px) {
+  article :where(p, li) {
+    text-align: justify;
+    text-align-last: left;
+  }
+}
+
 article :where(h2) {
   @apply font-display;
   @apply mt-0 text-sm font-medium uppercase tracking-[0.1em];
