@@ -4,7 +4,6 @@ import { SITE } from "@consts";
 
 const pathname = Astro.url.pathname;
 const isWriting = pathname === "/" || pathname.startsWith("/blog");
-const isWork = pathname.startsWith("/work");
 const isAbout = pathname.startsWith("/about");
 ---
 
@@ -30,18 +29,6 @@ const isAbout = pathname.startsWith("/about");
         ]}
       >
           Writing
-      </Link>
-      <Link
-        href="/work"
-        underline={false}
-        class:list={[
-          "text-sm",
-          isWork
-            ? "font-medium text-stone-900 dark:text-stone-50"
-            : "text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-50",
-        ]}
-      >
-        Work
       </Link>
       <Link
         href="/about"
