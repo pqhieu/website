@@ -75,8 +75,7 @@ article :where(p, li) {
 }
 
 article :where(h2) {
-  @apply font-display;
-  @apply mt-0 text-sm font-medium uppercase tracking-[0.1em];
+  @apply mt-0 text-sm font-extrabold uppercase tracking-[0.1em];
   @apply text-black/50 dark:text-white/75;
 }
 

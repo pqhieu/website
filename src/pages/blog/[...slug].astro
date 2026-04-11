@@ -4,7 +4,6 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { readingTime } from "@lib/utils";
-import BackToPrev from "@components/BackToPrev.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -23,13 +22,8 @@ const { Content } = await post.render();
 
 <PageLayout title={post.data.title} description={post.data.description}>
   <Container>
-    <div class="animate">
-      <BackToPrev href="/blog">
-        Back to blog
-      </BackToPrev>
-    </div>
     <div class="space-y-1 my-10">
-      <div class="animate font-display text-2xl font-semibold uppercase tracking-[0.02em] text-black dark:text-white">
+      <div class="animate text-xl font-extrabold uppercase tracking-[0.02em] text-black dark:text-white">
         {post.data.title}
       </div>
       <div class="animate flex items-center gap-1.5">
