@@ -21,4 +21,14 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { blog, work };
+const research = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    authors: z.string(),
+    venue: z.string(),
+    year: z.number(),
+  }),
+});
+
+export const collections = { blog, work, research };

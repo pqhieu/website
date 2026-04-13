@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "General Sans";
-  src: url("/fonts/GeneralSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "General Sans";
-  src: url("/fonts/GeneralSans-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 html {
   overflow-y: scroll;
   color-scheme: light;
@@ -51,10 +35,6 @@ footer {
   @apply py-10 text-sm;
 }
 
-.font-display {
-  font-family: "General Sans", sans-serif;
-}
-
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
@@ -67,16 +47,16 @@ article :where(p, li) {
   hyphens: auto;
 }
 
-@media (min-width: 900px) {
+/*@media (min-width: 900px) {
   article :where(p, li) {
     text-align: justify;
     text-align-last: left;
   }
-}
+}*/
 
 article :where(h2) {
   @apply mt-0 text-sm font-extrabold uppercase tracking-[0.1em];
-  @apply text-black/50 dark:text-white/75;
+  @apply text-black/50 dark:text-white/50;
 }
 
 @layer utilities {
@@ -105,4 +85,53 @@ html #back-to-top {
 
 html.scrolled #back-to-top {
   @apply opacity-100 pointer-events-auto;
+}
+
+.publication-card {
+  @apply grid gap-4 rounded-lg border border-black/15 p-4 transition-colors duration-300 dark:border-white/20;
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
+}
+
+.publication-card:hover {
+  @apply bg-black/5 dark:bg-white/5;
+}
+
+.publication-media {
+  @apply relative overflow-hidden rounded-xl bg-black/5 dark:bg-white/5;
+  aspect-ratio: 1.6 / 1;
+}
+
+.publication-media-image {
+  @apply absolute inset-0 size-full object-cover transition-opacity duration-300 ease-in-out;
+}
+
+.publication-media-image-hover {
+  @apply opacity-0;
+}
+
+.publication-card:hover .publication-media-image-hover {
+  @apply opacity-100;
+}
+
+.publication-card:hover .publication-media-image-static {
+  @apply opacity-0;
+}
+
+@media (max-width: 640px) {
+  .publication-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*@media (min-width: 900px) {
+  .publication-content > :where(h3, p) {
+    text-align: justify;
+    text-align-last: left;
+  }
+}*/
+
+.publication-content > :where(h3, p) {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }

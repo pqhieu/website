@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import type { ImageMetadata } from "astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
@@ -14,46 +15,123 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
+
+const publications = (await getCollection("research"))
+  .sort((a, b) => b.data.year - a.data.year);
+
+const staticImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/research/**/static.{avif,gif,jpeg,jpg,png,webp}",
+  { eager: true }
+);
+
+const hoverImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/research/**/hover.{avif,gif,jpeg,jpg,png,webp}",
+  { eager: true }
+);
+
+const publicationsWithImages = publications.map((entry) => {
+  const staticImage = staticImages[`/src/content/research/${entry.slug}/static.jpg`]
+    ?? staticImages[`/src/content/research/${entry.slug}/static.jpeg`]
+    ?? staticImages[`/src/content/research/${entry.slug}/static.png`]
+    ?? staticImages[`/src/content/research/${entry.slug}/static.webp`]
+    ?? staticImages[`/src/content/research/${entry.slug}/static.avif`]
+    ?? staticImages[`/src/content/research/${entry.slug}/static.gif`];
+  const hoverImage = hoverImages[`/src/content/research/${entry.slug}/hover.jpg`]
+    ?? hoverImages[`/src/content/research/${entry.slug}/hover.jpeg`]
+    ?? hoverImages[`/src/content/research/${entry.slug}/hover.png`]
+    ?? hoverImages[`/src/content/research/${entry.slug}/hover.webp`]
+    ?? hoverImages[`/src/content/research/${entry.slug}/hover.avif`]
+    ?? hoverImages[`/src/content/research/${entry.slug}/hover.gif`]
+    ?? staticImage;
+
+  return {
+    ...entry,
+    staticImage: staticImage?.default,
+    hoverImage: hoverImage?.default,
+  };
+});
 ---
 
 <PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
   <Container>
     <div class="space-y-16">
+      <article>
+        <p class="animate space-y-4 text-black/50 dark:text-white/75">
+          I've always enjoyed working with systems that can perceive and interact with the physical world, so called Embodied AI.
+          My work sits at the intersection of deep learning, computer vision, and robotics.
+          Currently, I am developing autonomous driving solutions for personal vehicles.
+        </p>
+      </article>
       <section>
-        <article class="space-y-4 text-black/50 dark:text-white/75">
-          <p class="animate">
-            I've always enjoyed working with systems that can perceive and interact with the physical world, so called Embodied AI.
-            My work sits at the intersection of deep learning, computer vision, and robotics.
-            Currently, I am developing autonomous driving solutions for personal vehicles.
-          </p>
-        </article>
-      </section>
-      <section>
-        <h2 class="mb-6 border-b border-black/15 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] text-black/50 dark:border-white/15 dark:text-white/75">
-          Experience
+        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-black/50  dark:text-white/50">
+          Work
         </h2>
         <ul class="flex flex-col space-y-8">
           {
             work.map(entry => (
               <li class="animate">
                 <div class="flex items-baseline justify-between gap-4">
-                  <div class="font-bold text-black dark:text-white">
+                  <div class="font-semibold text-black dark:text-white">
                     {entry.data.role}
                   </div>
-                  <div class="text-sm text-right opacity-75">
+                  <div class="text-sm text-right text-black/50 dark:text-white/50">
                     {dateRange(entry.data.dateStart, entry.data.dateEnd)}
                   </div>
                 </div>
-                <div class="text-sm">
+                <div class="text-sm text-black/50 dark:text-white/50">
                   <span>{entry.data.company}</span>
-                  <span class="opacity-75">
-                    &bull;
-                    {`${entry.data.location}`}
-                  </span>
+                  &bull;
+                  <span>{entry.data.location}</span>
                 </div>
                 <article class="prose mt-2">
                   <entry.Content />
                 </article>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section>
+        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-black/50  dark:text-white/50">
+          Selected Publications
+        </h2>
+        <ul class="flex flex-col space-y-6">
+          {
+            publicationsWithImages.map(entry => (
+              <li class="animate publication-card">
+                <div class="publication-media">
+                  {entry.staticImage && (
+                    <img
+                      src={entry.staticImage.src}
+                      width={entry.staticImage.width}
+                      height={entry.staticImage.height}
+                      alt=""
+                      loading="lazy"
+                      class="publication-media-image publication-media-image-static"
+                    />
+                  )}
+                  {entry.hoverImage && (
+                    <img
+                      src={entry.hoverImage.src}
+                      width={entry.hoverImage.width}
+                      height={entry.hoverImage.height}
+                      alt=""
+                      loading="lazy"
+                      class="publication-media-image publication-media-image-hover"
+                    />
+                  )}
+                </div>
+                <div class="publication-content min-w-0 space-y-1.5">
+                  <p class="font-semibold leading-snug text-black dark:text-white">
+                    {entry.data.title}
+                  </p>
+                  <p class="m-0 text-sm leading-relaxed text-black/60 dark:text-white/65">
+                    {entry.data.authors}
+                  </p>
+                  <p class="m-0 text-sm italic text-black/45 dark:text-white/45">
+                    In {entry.data.venue}, {entry.data.year}.
+                  </p>
+                </div>
               </li>
             ))
           }
