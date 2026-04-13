@@ -31,8 +31,8 @@ export function dateRange(
   const start = formatMonthYear(startDate);
 
   if (!endDate) {
-    return `${start} - present`;
+    return `${start} – present`;
   }
 
-  return `${start} - ${formatMonthYear(endDate)}`;
+  return `${start} – ${formatMonthYear(endDate)}`;
 }

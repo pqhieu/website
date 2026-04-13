@@ -38,7 +38,6 @@ footer {
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
-  @apply prose-headings:text-primary;
 }
 
 article :where(p, li) {
@@ -47,52 +46,50 @@ article :where(p, li) {
   hyphens: auto;
 }
 
-/*@media (min-width: 900px) {
+@media (min-width: 900px) {
   article :where(p, li) {
     text-align: justify;
     text-align-last: left;
   }
-}*/
+}
 
 article :where(h2) {
   @apply mt-0 text-sm font-extrabold uppercase tracking-[0.1em];
   @apply text-label;
 }
 
-@layer utilities {
-  .text-primary {
-    @apply text-black dark:text-white;
-  }
+.text-primary {
+  @apply text-black dark:text-white;
+}
 
-  .text-secondary {
-    @apply text-black/60 dark:text-white/65;
-  }
+.text-secondary {
+  @apply text-black/60 dark:text-white/65;
+}
 
-  .text-tertiary {
-    @apply text-black/45 dark:text-white/45;
-  }
+.text-tertiary {
+  @apply text-black/45 dark:text-white/45;
+}
 
-  .text-label {
-    @apply text-black/50 dark:text-white/50;
-  }
+.text-label {
+  @apply text-black/50 dark:text-white/50;
+}
 
-  article a {
-    @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-black/15 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
-  }
-  article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/25 dark:decoration-white/50;
-  }
+article a {
+  @apply text-primary;
+  @apply underline underline-offset-2;
+  @apply decoration-black/15 dark:decoration-white/30;
+  @apply transition-colors duration-300 ease-in-out;
+}
+article a:hover {
+  @apply decoration-black/25 dark:decoration-white/50;
 }
 
 .animate {
-  @apply opacity-100 translate-y-0;
+  @apply opacity-100 translate-y-3;
 }
 
 .animate.show {
-  @apply opacity-100 translate-y-0;
+  @apply opacity-100 translate-y-3;
 }
 
 html #back-to-top {
@@ -104,17 +101,13 @@ html.scrolled #back-to-top {
 }
 
 .publication-card {
-  @apply grid gap-4 rounded-lg border border-black/15 p-4 transition-colors duration-300 dark:border-white/20;
+  @apply grid gap-4 rounded-lg;
   grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
-}
-
-.publication-card:hover {
-  @apply bg-black/5 dark:bg-white/5;
 }
 
 .publication-media {
   @apply relative overflow-hidden rounded-xl bg-black/5 dark:bg-white/5;
-  aspect-ratio: 1.6 / 1;
+  aspect-ratio: 1.6;
 }
 
 .publication-media-image {
@@ -139,12 +132,12 @@ html.scrolled #back-to-top {
   }
 }
 
-/*@media (min-width: 900px) {
+@media (min-width: 900px) {
   .publication-content > :where(h3, p) {
     text-align: justify;
     text-align-last: left;
   }
-}*/
+}
 
 .publication-content > :where(h3, p) {
   -webkit-hyphens: auto;

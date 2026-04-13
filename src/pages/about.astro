@@ -55,18 +55,19 @@ const publicationsWithImages = publications.map((entry) => {
 <PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
   <Container>
     <div class="space-y-16">
-      <article>
-        <p class="animate space-y-4 text-secondary">
+      <article class="m-0">
+        <p class="animate m-0 text-secondary">
           I've always enjoyed working with systems that can perceive and interact with the physical world, so called Embodied AI.
           My work sits at the intersection of deep learning, computer vision, and robotics.
           Currently, I am developing autonomous driving solutions for personal vehicles.
+          More can be found in <a href="/resume.pdf">my CV</a>.
         </p>
       </article>
       <section>
         <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-label">
           Work
         </h2>
-        <ul class="flex flex-col space-y-8">
+        <ul class="flex flex-col space-y-6">
           {
             work.map(entry => (
               <li class="animate">
@@ -83,7 +84,7 @@ const publicationsWithImages = publications.map((entry) => {
                   &bull;
                   <span>{entry.data.location}</span>
                 </div>
-                <article class="prose mt-2">
+                <article>
                   <entry.Content />
                 </article>
               </li>

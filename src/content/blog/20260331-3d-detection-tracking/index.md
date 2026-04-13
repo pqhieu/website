@@ -2,7 +2,7 @@
 title: "Making of an AV: 3D Detection-Tracking"
 description: "A placeholder post for the blog."
 date: 2026-03-31
-draft: False
+draft: True
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat, libero et feugiat efficitur, risus sem pulvinar nibh, vitae luctus neque massa eget nisl. Donec et lectus at libero vulputate posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
