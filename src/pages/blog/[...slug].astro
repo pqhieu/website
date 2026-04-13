@@ -23,10 +23,10 @@ const { Content } = await post.render();
 <PageLayout title={post.data.title} description={post.data.description}>
   <Container>
     <div class="space-y-1 my-10">
-      <div class="animate text-2xl font-extrabold uppercase tracking-[0.01em] text-black dark:text-white">
+      <div class="animate text-2xl font-extrabold uppercase tracking-[0.01em] text-primary">
         {post.data.title}
       </div>
-      <div class="animate flex items-center gap-1.5 text-black/50 dark:text-white/50">
+      <div class="animate flex items-center gap-1.5 text-label">
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
         </div>
@@ -36,7 +36,7 @@ const { Content } = await post.render();
         </div>
       </div>
     </div>
-    <article class="animate">
+    <article class="animate text-secondary">
       <Content />
     </article>
   </Container>

@@ -56,14 +56,14 @@ const publicationsWithImages = publications.map((entry) => {
   <Container>
     <div class="space-y-16">
       <article>
-        <p class="animate space-y-4 text-black/50 dark:text-white/75">
+        <p class="animate space-y-4 text-secondary">
           I've always enjoyed working with systems that can perceive and interact with the physical world, so called Embodied AI.
           My work sits at the intersection of deep learning, computer vision, and robotics.
           Currently, I am developing autonomous driving solutions for personal vehicles.
         </p>
       </article>
       <section>
-        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-black/50  dark:text-white/50">
+        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-label">
           Work
         </h2>
         <ul class="flex flex-col space-y-8">
@@ -71,14 +71,14 @@ const publicationsWithImages = publications.map((entry) => {
             work.map(entry => (
               <li class="animate">
                 <div class="flex items-baseline justify-between gap-4">
-                  <div class="font-semibold text-black dark:text-white">
+                  <div class="font-semibold text-primary">
                     {entry.data.role}
                   </div>
-                  <div class="text-sm text-right text-black/50 dark:text-white/50">
+                  <div class="text-sm text-right text-tertiary">
                     {dateRange(entry.data.dateStart, entry.data.dateEnd)}
                   </div>
                 </div>
-                <div class="text-sm text-black/50 dark:text-white/50">
+                <div class="text-sm text-secondary">
                   <span>{entry.data.company}</span>
                   &bull;
                   <span>{entry.data.location}</span>
@@ -92,7 +92,7 @@ const publicationsWithImages = publications.map((entry) => {
         </ul>
       </section>
       <section>
-        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-black/50  dark:text-white/50">
+        <h2 class="mb-6 pb-3 text-sm font-extrabold uppercase tracking-[0.1em] border-b border-black/15 dark:border-white/15 text-label">
           Selected Publications
         </h2>
         <ul class="flex flex-col space-y-6">
@@ -122,13 +122,13 @@ const publicationsWithImages = publications.map((entry) => {
                   )}
                 </div>
                 <div class="publication-content min-w-0 space-y-1.5">
-                  <p class="font-semibold leading-snug text-black dark:text-white">
+                  <p class="font-semibold leading-snug text-primary">
                     {entry.data.title}
                   </p>
-                  <p class="m-0 text-sm leading-relaxed text-black/60 dark:text-white/65">
+                  <p class="m-0 text-sm leading-relaxed text-secondary">
                     {entry.data.authors}
                   </p>
-                  <p class="m-0 text-sm italic text-black/45 dark:text-white/45">
+                  <p class="m-0 text-sm italic text-tertiary">
                     In {entry.data.venue}, {entry.data.year}.
                   </p>
                 </div>

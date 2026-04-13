@@ -15,7 +15,7 @@ const blog = (await getCollection("blog"))
   <Container>
     <div class="space-y-16">
       <section>
-        <article class="space-y-4 text-black/50 dark:text-white/75">
+        <article class="space-y-4 text-secondary">
           <p class="animate">
             Hey there 👋, welcome to my website.
           </p>
@@ -30,12 +30,12 @@ const blog = (await getCollection("blog"))
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h2 class="text-sm uppercase font-extrabold tracking-[0.1em] text-black/50 dark:text-white/50">
+          <h2 class="text-sm uppercase font-extrabold tracking-[0.1em] text-label">
             Posts
           </h2>
           <a
             href="/rss.xml"
-            class="inline-flex items-center gap-1.5 text-black/50 transition-colors hover:text-black dark:text-white/50 dark:hover:text-white"
+            class="inline-flex items-center gap-1.5 text-label transition-colors hover:text-black dark:hover:text-white"
             aria-label="RSS"
             title="RSS"
           >

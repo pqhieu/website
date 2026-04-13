@@ -20,7 +20,7 @@ body {
   @apply font-sans antialiased;
   @apply flex flex-col;
   @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
+  @apply text-secondary;
 }
 
 header {
@@ -38,7 +38,7 @@ footer {
 article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply prose-headings:text-primary;
 }
 
 article :where(p, li) {
@@ -56,10 +56,26 @@ article :where(p, li) {
 
 article :where(h2) {
   @apply mt-0 text-sm font-extrabold uppercase tracking-[0.1em];
-  @apply text-black/50 dark:text-white/50;
+  @apply text-label;
 }
 
 @layer utilities {
+  .text-primary {
+    @apply text-black dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-black/60 dark:text-white/65;
+  }
+
+  .text-tertiary {
+    @apply text-black/45 dark:text-white/45;
+  }
+
+  .text-label {
+    @apply text-black/50 dark:text-white/50;
+  }
+
   article a {
     @apply font-sans text-current underline underline-offset-2;
     @apply decoration-black/15 dark:decoration-white/30;
