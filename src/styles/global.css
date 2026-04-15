@@ -36,8 +36,7 @@ footer {
 }
 
 article {
-  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold;
+  @apply max-w-full;
 }
 
 article :where(p, li) {
@@ -54,7 +53,7 @@ article :where(p, li) {
 }
 
 article :where(h2) {
-  @apply mt-0 text-sm font-extrabold uppercase tracking-[0.1em];
+  @apply mt-0 uppercase tracking-[0.1em];
   @apply text-label;
 }
 
@@ -130,17 +129,4 @@ html.scrolled #back-to-top {
   .publication-card {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-
-@media (min-width: 900px) {
-  .publication-content > :where(h3, p) {
-    text-align: justify;
-    text-align-last: left;
-  }
-}
-
-.publication-content > :where(h3, p) {
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
 }

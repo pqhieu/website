@@ -22,22 +22,24 @@ const { Content } = await post.render();
 
 <PageLayout title={post.data.title} description={post.data.description}>
   <Container>
-    <div class="space-y-1 my-10">
-      <div class="animate text-2xl font-extrabold uppercase tracking-[0.01em] text-primary">
-        {post.data.title}
-      </div>
-      <div class="animate flex items-center gap-1.5 text-label">
-        <div class="font-base text-sm">
-          <FormattedDate date={post.data.date} />
+    <article class="prose dark:prose-invert prose-img:mx-auto prose-img:my-auto prose-headings:font-extrabold prose-headings:text-sm prose-h1:text-2xl">
+      <section class="space-y-1 my-10">
+        <h1 class="mb-0 animate font-extrabold uppercase tracking-[0.01em] text-primary">
+            {post.data.title}
+        </h1>
+        <div class="animate flex items-center gap-1.5 text-tertiary">
+          <span class="font-base text-sm">
+            <FormattedDate date={post.data.date} />
+          </span>
+          &bull;
+          <span class="font-base text-sm">
+            {readingTime(post.body)}
+          </span>
         </div>
-        &bull;
-        <div class="font-base text-sm">
-          {readingTime(post.body)}
-        </div>
-      </div>
-    </div>
-    <article class="animate">
-      <Content />
+      </section>
+      <section class="animate">
+        <Content />
+      </section>
     </article>
   </Container>
 </PageLayout>

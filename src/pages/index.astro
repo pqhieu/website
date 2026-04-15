@@ -13,19 +13,17 @@ const blog = (await getCollection("blog"))
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <div class="space-y-16">
-      <section>
-        <article class="space-y-4 text-secondary">
-          <p class="animate">
-            Hey there 👋, welcome to my website.
-          </p>
-          <p>
-            I use this space to capture (half-baked) thoughts, explore ideas, and write about things I find interesting.
-          </p>
-          <p>
-            If there's anything you'd like to discuss, please feel free to send me an email.
-          </p>
-        </article>
+    <article class="space-y-16">
+      <section class="prose dark:prose-invert prose-img:mx-auto prose-img:my-auto space-y-4 text-secondary">
+        <p>
+          Hey there 👋, welcome to my website.
+        </p>
+        <p>
+          I use this space to capture (half-baked) thoughts, explore ideas, and write about things I find interesting.
+        </p>
+        <p>
+          If there's anything you'd like to discuss, please feel free to send me an email.
+        </p>
       </section>
 
       <section class="animate space-y-6">
@@ -35,7 +33,7 @@ const blog = (await getCollection("blog"))
           </h2>
           <a
             href="/rss.xml"
-            class="inline-flex items-center gap-1.5 text-label transition-colors hover:text-black dark:hover:text-white"
+            class="inline-flex items-center no-underline gap-1.5 text-label transition-colors hover:text-black dark:hover:text-white"
             aria-label="RSS"
             title="RSS"
           >
@@ -61,6 +59,6 @@ const blog = (await getCollection("blog"))
           ))}
         </ul>
       </section>
-    </div>
+    </article>
   </Container>
 </PageLayout>

@@ -6,4 +6,4 @@ dateStart: "02/01/2020"
 dateEnd: "06/01/2020"
 ---
 
-Lidar-based detection model for large vehicles
+Lidar-based detection model for large vehicles.
