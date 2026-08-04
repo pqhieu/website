@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        serif: ["Lora", ...defaultTheme.fontFamily.serif],
+        sans: ["Concourse4", ...defaultTheme.fontFamily.sans],
+        serif: ["ValkyrieB", ...defaultTheme.fontFamily.serif],
       },
     },
   },

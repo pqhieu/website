@@ -20,9 +20,9 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<PageLayout title={post.data.title} description={post.data.description}>
+<PageLayout title={`pqh://blog/${post.slug}`} description={post.data.description}>
   <Container>
-    <article class="prose dark:prose-invert prose-img:mx-auto prose-img:my-auto prose-headings:font-extrabold prose-headings:text-sm prose-h1:text-2xl">
+    <article class="prose dark:prose-invert prose-img:mx-auto prose-img:my-auto prose-headings:font-extrabold prose-headings:text-sm prose-h1:text-xl prose-h3:font-semibold">
       <section class="space-y-1 my-10">
         <h1 class="mb-0 animate font-extrabold uppercase tracking-[0.01em] text-primary">
             {post.data.title}

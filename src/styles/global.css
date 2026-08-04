@@ -2,7 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: ValkyrieB;
+  src: url("/fonts/valkyrie/valkyrie-ot-b-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ValkyrieB;
+  src: url("/fonts/valkyrie/valkyrie-ot-b-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ValkyrieB;
+  src: url("/fonts/valkyrie/valkyrie-ot-b-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ValkyrieB;
+  src: url("/fonts/valkyrie/valkyrie-ot-b-bold-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 500 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Concourse4;
+  src: url("/fonts/concourse/concourse-ot-4-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Concourse4;
+  src: url("/fonts/concourse/concourse-ot-4-medium-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
 html {
+  font-size: clamp(17px, 2vw, 21px);
   overflow-y: scroll;
   color-scheme: light;
 }
@@ -17,10 +66,12 @@ body {
 }
 
 body {
-  @apply font-sans antialiased;
+  @apply font-serif antialiased;
   @apply flex flex-col;
   @apply bg-stone-100 dark:bg-stone-900;
   @apply text-secondary;
+  font-feature-settings: "kern", "liga", "onum";
+  line-height: 1.45;
 }
 
 header {
@@ -28,7 +79,7 @@ header {
 }
 
 main {
-  @apply flex-1 py-12;
+  @apply flex-1 py-10;
 }
 
 footer {
@@ -37,6 +88,32 @@ footer {
 
 article {
   @apply max-w-full;
+}
+
+.prose {
+  @apply max-w-none;
+  @apply text-[0.9rem] leading-[1.45];
+  @apply text-secondary;
+}
+
+.prose :where(p, ol, ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply my-0 mb-[1em];
+}
+
+.prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply font-bold text-primary;
+}
+
+.prose :where(em):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply italic text-primary;
+}
+
+.prose :where(ol, ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply pl-[2.5rem];
+}
+
+.prose :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply my-0 mb-[1em] pl-0;
 }
 
 article :where(p, li) {
@@ -57,6 +134,20 @@ article :where(h2) {
   @apply text-label;
 }
 
+article :where(h1, h2, h3) {
+  font-feature-settings: "kern", "liga";
+}
+
+article :where(h1, h2, .uppercase) {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: "kern", "liga", "c2sc", "smcp";
+}
+
+.small-caps {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: "kern", "liga", "c2sc", "smcp";
+}
+
 .text-primary {
   @apply text-black dark:text-white;
 }
@@ -75,12 +166,12 @@ article :where(h2) {
 
 article a {
   @apply text-primary;
-  @apply underline underline-offset-2;
-  @apply decoration-black/15 dark:decoration-white/30;
+  @apply no-underline;
   @apply transition-colors duration-300 ease-in-out;
 }
+
 article a:hover {
-  @apply decoration-black/25 dark:decoration-white/50;
+  @apply text-black/70 dark:text-white/80;
 }
 
 .animate {
@@ -101,7 +192,7 @@ html.scrolled #back-to-top {
 
 .publication-card {
   @apply grid gap-4 rounded-lg;
-  grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
 }
 
 .publication-media {

@@ -1,13 +1,13 @@
 import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
-  NAME: "P ⋅ Q = H",
+  NAME: "pqh://",
   EMAIL: "pqhieu1192@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
+  TITLE: "pqh://",
   DESCRIPTION: "",
 };
 
@@ -17,7 +17,7 @@ export const BLOG: Metadata = {
 };
 
 export const ABOUT: Metadata = {
-  TITLE: "About",
+  TITLE: "pqh://about",
   DESCRIPTION: "",
 };
 

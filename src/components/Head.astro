@@ -1,9 +1,6 @@
 ---
 import "../styles/global.css";
-import "@fontsource/inter/latin-400.css";
-import "@fontsource/inter/latin-600.css";
-import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2";
-import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2";
+import "katex/dist/katex.min.css";
 
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@consts";
@@ -30,10 +27,6 @@ const { title, description, image = "/nano.png" } = Astro.props;
 <link rel="apple-touch-icon" href={`/apple-touch-icon.png?v=${faviconVersion}`}>
 <link rel="manifest" href={`/site.webmanifest?v=${faviconVersion}`}>
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font preloads -->
-<link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin/>
-<link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
