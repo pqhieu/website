@@ -10,8 +10,8 @@ TLM of the Vehicle Perception team, leading a team of 10+ engineers.
 
 ❖ Foundation Sensor Model
 
-Defined the roadmap and technical direction for Woven’s end-to-end perception system. Owned the development of core capabilities including 3D detection and tracking, multi-sensor fusion, and large-scale foundation training.
+Led a cross-functional effort to build and ship the first end-to-end perception model at Woven. Owned the development roadmaps of several core perception capabilities: 3D detection-tracking, multi-sensor fusion, and large-scale foundation training.
 
 ❖ ML Edge Compute
 
-Led a cross-functional team to deploy and optimize ML models across multiple hardware platforms (Qualcomm, NVIDIA). Built the end-to-end deployment pipeline from the ground up, including model conversion, quantization, and on-device validation.
+Built the ML edge deployment capability from the ground up. Led a cross-functional team to compile, optimize, and deploy our ML models on both Qualcomm and NVIDIA hardware platforms. Owned the end-to-end deployment stack: model conversion, performance optimization, and edge evaluation.

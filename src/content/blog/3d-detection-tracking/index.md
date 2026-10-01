@@ -5,11 +5,13 @@ date: 2026-08-02
 draft: True
 ---
 
-In this series, I will go in depth about the internal systems inside an autonomous vehicle (AV). Of course it would be ML heavy, but I prefer to approach in a different angle. Rather than focus on the model and algorithms, I'd like to discuss more about system design, tradeoffs, and common pitfalls.
+In this series, I will go in depth about the internal systems inside an autonomous vehicle (AV). However, instead of emphasizing on the ML modeling or algorithms, I would like to approach the topic from a system design perspective.
 
 ## Modeling
 
-In the past, detection and tracking were considered separated problems. This maps to two (or multiple) teams building their own model/pipeline. However, I'd argue that treating them as the same problem would provide a lot of benefits, both from modeling and performance standpoint.
+Historically, detection and tracking are used to live in separated modules in an AV system. This follows the classic *tracking-by-detection paradigm* (reference), where detections can come from one (or multiple sources), and then spatio-temporally associated into tracks.
+
+In recent years, with the push for an end-to-end architecture in AV, there has also been a shift in detection-tracking to be more end-to-end.
 
 | Symbol | Definition                     |
 |--------|--------------------------------|
@@ -19,7 +21,6 @@ In the past, detection and tracking were considered separated problems. This map
 
 ### Observation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate ligula sed sapien suscipit, eu cursus lacus interdum. Nulla facilisi. Morbi finibus volutpat massa, non vulputate arcu tristique at. Suspendisse non consequat dui. Integer efficitur malesuada arcu, sit amet pulvinar dui luctus eu.
 
 ### Update
 
